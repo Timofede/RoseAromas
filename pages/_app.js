@@ -35,6 +35,8 @@ function MyApp({ Component, pageProps }) {
 	      <meta name="keywords" content="aromas, vela, difusor, bombon, homespray, perfume, decoracion, emprendimiento, rose"/>
         <meta name="theme-color" content="#084444"/>
         <link rel="apple-touch-icon" href="./A-imgs/rose.webp"></link>
+        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1227625620686925" crossorigin="anonymous"></Script>
+
       </Head>
       
       <CarouselContext>
@@ -64,8 +66,7 @@ function MyApp({ Component, pageProps }) {
             />
 
             {/* Google Adsense */}
-
-            <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655669335191511" crossOrigin="anonymous"></Script>
+            {/* <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1655669335191511" crossOrigin="anonymous"></Script> */}
             
             
             <Script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></Script>

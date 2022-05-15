@@ -1,21 +1,14 @@
-import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
-import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
-import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import { useState } from 'react';
-import TextField from '@material-ui/core/TextField';
-import { addStorage, editPropProduct, removeProduct } from '../../../firebaseX/Firebase';
+import { addStorage, removeProduct } from '../../../firebaseX/Firebase';
 import Image from "next/image";
 import loading from "../../A-imgs/loading_apple_wordpress.webp"
-
+import DashboardProductoInput from '../DashboardProductoInputX/DashboardProductoInput';
 
 
 
 export default function DashboardProductoItem ({producto,setReload, reload}) {
-    const [propType, setPropType] = useState("");
-    const [data,setData] = useState("");
     const [disp,setDisp]=useState("none");
-   
-    const [cargando,setCargando] = useState(false);
+    const [cargando,setCargando] = useState(true);
 
 
 
@@ -31,16 +24,6 @@ export default function DashboardProductoItem ({producto,setReload, reload}) {
         }
     }
 
-    const handleChangeData = (e) => {
-        setData(e.target.value)
-    }
-
-    const handleConfirm = () => {
-        editPropProduct(producto.id,propType,data).then(res => {
-            setPropType("");
-            setReload(!reload);
-        });
-    }
 
     const handleRemoveProduct = () => {
         setCargando(true)
@@ -77,71 +60,16 @@ export default function DashboardProductoItem ({producto,setReload, reload}) {
                     </div>
 
                     <div className='dash-prod-item-box'>
-                        <div>
-                            <h5>Nombre: </h5>
-                            {propType === "nombre" ? <TextField className="title-dash-prod-item" size="medium" autoComplete="off" color="secondary"  id="nameId"  placeholder="Nombre" type="text" onChangeCapture={handleChangeData}/>
-                            : <h5>{producto.Nombre}</h5>}
-                            
-                            {propType !== "nombre" ? <EditTwoToneIcon fontSize="large" onClick={() => {setPropType("nombre")}}/>
-                            : <div>
-                                <CheckCircleOutlineOutlinedIcon onClick={handleConfirm}/>
-                                <CancelOutlinedIcon onClick={()=> {setPropType(""); setData("")}}/>
-                            </div>
-                            } 
-                        </div>
+                        
+                        <DashboardProductoInput tipo={"nombre"} title={"Nombre"} producto={producto} />
+                        <DashboardProductoInput tipo={"descripcion"} title={"Descripcion"} producto={producto} />
 
-                        <div>
-                            <h5>Descripcion: </h5>
-                            {propType === "descripcion" ? <TextField className="form-input" size="medium" autoComplete="off" color="secondary"  id="descripcionId"  placeholder="Descripcion" type="text" onChangeCapture={handleChangeData}/>
-                                : <h5>{producto.Descripcion}</h5>}
-                            {propType !== "descripcion" ? <EditTwoToneIcon fontSize="large" onClick={() => {setPropType("descripcion")}}/>
-                            : <div>
-                                <CheckCircleOutlineOutlinedIcon onClick={handleConfirm}/>
-                                <CancelOutlinedIcon onClick={()=> {setPropType(""); setData("")}}/>
-                                </div>
-                            } 
-                        </div>
-                
                     </div>
 
                     <div className='dash-prod-item-box'>
-
-                        <div>
-                            <h5>Categoria: </h5>
-                            {propType === "categoria" ? <TextField className="form-input" size="medium" autoComplete="off" color="secondary"  id="categoriaId"  placeholder="Categoria" type="text" onChangeCapture={handleChangeData}/>
-                            : <h5>{producto.Categoria}</h5>}
-
-                        {propType !== "categoria" ? <EditTwoToneIcon fontSize="large" onClick={() => {setPropType("categoria")}}/>
-                            : <div>
-                                <CheckCircleOutlineOutlinedIcon onClick={handleConfirm}/>
-                                <CancelOutlinedIcon onClick={()=> {setPropType(""); setData("")}}/>
-                                </div>
-                            } 
-                        </div>
-
-                        <div>
-                            <h5>Precio: $ </h5>
-                            {propType === "precio" ? <TextField className="form-input" size="medium" autoComplete="off" color="secondary"  id="precioId"  placeholder="Precio" type="number" onChangeCapture={handleChangeData}/>
-                            : <h5>{producto.Precio}</h5>}
-                            {propType !== "precio" ? <EditTwoToneIcon fontSize="large" onClick={() => {setPropType("precio")}}/>
-                            : <div>
-                                <CheckCircleOutlineOutlinedIcon onClick={handleConfirm}/>
-                                <CancelOutlinedIcon onClick={()=> {setPropType(""); setData("")}}/>
-                                </div>
-                            } 
-                        </div>
-
-                        <div>
-                            <h5>Stock: </h5>
-                            {propType === "stock" ? <TextField className="form-input" size="medium" autoComplete="off" color="secondary"  id="stockId"  placeholder="Stock" type="number" onChangeCapture={handleChangeData}/>
-                            : <h5>{producto.Stock}</h5>}
-                            {propType !== "stock" ? <EditTwoToneIcon fontSize="large" onClick={() => {setPropType("stock")}}/>
-                            : <div>
-                                <CheckCircleOutlineOutlinedIcon onClick={handleConfirm}/>
-                                <CancelOutlinedIcon onClick={()=> {setPropType(""); setData("")}}/>
-                                </div>
-                            } 
-                        </div>
+                    <DashboardProductoInput tipo={"categoria"} title={"Categoria"} producto={producto} />
+                    <DashboardProductoInput tipo={"precio"} title={"Precio"} producto={producto} />
+                    <DashboardProductoInput tipo={"stock"} title={"Stock"} producto={producto} />
 
                     </div>
                     
