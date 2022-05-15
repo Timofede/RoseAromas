@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { addStorage, removeProduct } from '../../../firebaseX/Firebase';
+import { addStorage, editPropProduct, removeProduct } from '../../../firebaseX/Firebase';
 import Image from "next/image";
 import loading from "../../A-imgs/loading_apple_wordpress.webp"
 import DashboardProductoInput from '../DashboardProductoInputX/DashboardProductoInput';
@@ -8,7 +8,7 @@ import DashboardProductoInput from '../DashboardProductoInputX/DashboardProducto
 
 export default function DashboardProductoItem ({producto,setReload, reload}) {
     const [disp,setDisp]=useState("none");
-    const [cargando,setCargando] = useState(true);
+    const [cargando,setCargando] = useState(false);
 
 
 
@@ -61,15 +61,15 @@ export default function DashboardProductoItem ({producto,setReload, reload}) {
 
                     <div className='dash-prod-item-box'>
                         
-                        <DashboardProductoInput tipo={"nombre"} title={"Nombre"} producto={producto} />
-                        <DashboardProductoInput tipo={"descripcion"} title={"Descripcion"} producto={producto} />
+                        <DashboardProductoInput tipo={"nombre"} title={"Nombre"} producto={producto} setReload={setReload} reload={reload}/>
+                        <DashboardProductoInput tipo={"descripcion"} title={"Descripcion"} producto={producto} setReload={setReload} reload={reload}/>
 
                     </div>
 
                     <div className='dash-prod-item-box'>
-                    <DashboardProductoInput tipo={"categoria"} title={"Categoria"} producto={producto} />
-                    <DashboardProductoInput tipo={"precio"} title={"Precio"} producto={producto} />
-                    <DashboardProductoInput tipo={"stock"} title={"Stock"} producto={producto} />
+                        <DashboardProductoInput tipo={"categoria"} title={"Categoria"} producto={producto} setReload={setReload} reload={reload}/>
+                        <DashboardProductoInput tipo={"precio"} title={"Precio"} producto={producto} setReload={setReload} reload={reload}/>
+                        <DashboardProductoInput tipo={"stock"} title={"Stock"} producto={producto} setReload={setReload} reload={reload}/>
 
                     </div>
                     
