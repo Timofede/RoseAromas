@@ -62,7 +62,7 @@ export default function DashboardAddProducto ({disp,setDisp,reload,setReload}) {
                 <div>
                     <div>
                         <h5>Imagen: </h5>
-                        <input type="file" name="img" id="img" accept="image/png" onChangeCapture={(e) => handleData(e,"imagen")}
+                        <input type="file" name="img" id="img" accept="image/*" onChangeCapture={(e) => handleData(e,"imagen")}
                         {...register("img",{required:true})}/>
                         <span className="text-danger text-small d-block mb-2">
                             {errors.img?.type==="required"&&"Campo obligatorio"}
