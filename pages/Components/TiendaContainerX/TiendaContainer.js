@@ -41,7 +41,7 @@ export default function TiendaContainer ({itemType, setItemType, setShowNotifica
     return (
         <div className="tienda-container">
             <div className="title-container">
-                <h1>{itemType.charAt(0).toUpperCase() + itemType.slice(1)}</h1>
+                {itemType===undefined?<p>Todo</p>:<h1>{itemType.charAt(0).toUpperCase() + itemType.slice(1)}</h1>}
             </div>
 
             <div className="tienda">
