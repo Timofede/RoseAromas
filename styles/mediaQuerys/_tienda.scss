@@ -19,6 +19,8 @@
     }
     .css-46bh2p-MuiCardContent-root{
         width: 100% !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
     }
     .add-cart-button{
         display: none !important;
@@ -33,6 +35,13 @@
     }
     .container-details-cart{
         z-index: 5;
+    }
+    .css-h93ljk-MuiTypography-root{
+        min-height: 150px !important;
+        max-height: 110px !important;
+        overflow-x: hidden !important;
+        overflow-y: hidden !important;
+        min-width: 100% !important;
     }
 }
 @media (max-width:530px){
@@ -51,7 +60,6 @@
         &:hover img{
             width: 100%;
             height: auto;
-
         }
     }
 }
