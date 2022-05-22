@@ -21,7 +21,7 @@ function Refill() {
             <li>- Si es de madera, ser ignifugo</li>
             <li>- Servicio único para: Zárate-Campana-Lima</li>
           </ul>
-          <a href="https://wa.me/543487513839?text=Hola Rosé! Quería hacer una consulta sobre los Refill" target="_blank" rel="noreferrer" className="contacto-refill">Contactar servicio: 3487542190</a>
+          <a href="https://wa.me/543487513839?text=Hola Rosé! Quería hacer una consulta sobre los Refill" target="_blank" rel="noreferrer" className="contacto-refill">Contactar servicio: 3487513839</a>
         </div>
 
         <div className="container-logoWhap">

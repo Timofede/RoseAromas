@@ -68,6 +68,15 @@ function NuestrosProductos() {
         </div>
       </div>
 
+      <h1 className="title-refill">SOUVENIRS</h1>
+
+      <div className="container-refill">
+        <p> Ofrecemos servicio de souvenirs para eventos. Podes elegir el producto de la tienda que te guste y pedir un presupuesto para la cantidad que necesites.
+            Se recomienda pedir este servicio con un mes de anticipación mínimo. Las fragancias son a elección y pueden ser surtidas.
+        </p>
+        <a href="https://wa.me/543487513839?text=Hola Rosé! Quería hacer una consulta sobre el servicio de souvenirs" target="_blank" rel="noreferrer" className="contacto-refill">Contactar servicio: 3487513839</a>
+      </div>
+
       <div className="container-logoWhap">
         <a href="https://wa.me/543487513839?text=Hola Rosé! Quería hacer una consulta" target="_blank" rel="noreferrer">
             <Image src={logoWhap} alt="Whap" className='logoWhap' width={80} height={80}/>
