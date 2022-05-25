@@ -8,7 +8,6 @@ export default function ItemTypeSelect ({setType,prod}){
   const handleOnChange = (e) => {
     setType(e.target.value)
   }
-  console.log(prod)
 
   return (
     <div className="item-select-container">
