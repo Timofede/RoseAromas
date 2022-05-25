@@ -5,7 +5,8 @@ import Loader from '../LoaderX/Loader';
 import { addNewOrder, addNewOrderFalse } from '../../../firebaseX/Firebase';
 import { sendEmail } from '../../../helpersX/helpers';
 
-export default function MercadoPagoButton ({payerInfo, formValidado,payerInfoEspecial}) {
+export default function MercadoPagoButton ({payerInfo,payerInfoEspecial,formValidado}) {
+
     const {items,clear} = useContext(UseCartContext);
     const router = useRouter();
 
@@ -41,7 +42,7 @@ export default function MercadoPagoButton ({payerInfo, formValidado,payerInfoEsp
 
         const vaciarStorage=[]
 
-        if(payerInfoEspecial.metodo_pago === "mercadopago"){
+        if(payerInfoEspecial.metodo_pago === "linkMP"){
           // COMPRA MERCADO PAGO
           // AGREGO ORDEN A FIREBASE, SI SE COMPLETA LA COMPRA LA DEJO SINO LA ELIMINO
     

@@ -37,11 +37,22 @@
         z-index: 5;
     }
     .css-h93ljk-MuiTypography-root{
-        min-height: 150px !important;
-        max-height: 110px !important;
+        min-height: 5rem !important;
+        max-height: 5rem !important;
         overflow-x: hidden !important;
         overflow-y: hidden !important;
         min-width: 100% !important;
+        &::-webkit-scrollbar {
+            width: 3px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #084444;
+            border-radius: 2vw;
+        }
+        
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
     }
 }
 @media (max-width:530px){
@@ -61,5 +72,16 @@
             width: 100%;
             height: auto;
         }
+    }
+}
+@media(max-width:380px){
+    .MuiPaper-root {
+        width: 47%;
+    }
+    .css-1ri6ub7-MuiPaper-root-MuiCard-root{
+        margin: 1vw;
+    }
+    .css-46bh2p-MuiCardContent-root{
+        padding: .5em 0em;
     }
 }

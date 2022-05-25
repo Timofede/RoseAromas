@@ -23,6 +23,7 @@ export default function Form2(){
     const [phone, setPhone] = useState({});
     const [address, setAddress] = useState({});
     const [metodoPago,setMetodoPago]=useState("")
+    const [metodoMP,setMetodoMP]=useState("")
 
     const [codigoPostal,setCodigoPostal]= useState(false)
     const [cambiarCodigo,setCambiarCodigo]=useState(false)
@@ -52,6 +53,12 @@ export default function Form2(){
     },[])// eslint-disable-line react-hooks/exhaustive-deps
     
     const handleFormSubmit = () => {
+        if(metodoPago==="mercadopago"){
+            if(metodoMP===""){
+                alert("Seleccione un metodo de pago (envio dinero (MP)-Transferencia o Link Mercadopago)")
+                return
+            }
+        }
         setRespuesta(true)
         setFormValidado(true);
     }   
@@ -124,8 +131,19 @@ export default function Form2(){
     }
     
     const handlePago=(pago)=>{
-        setMetodoPago(pago)
-        handleMetodoPago(pago);
+        if(pago==="efectivo" || pago==="mercadopago"){
+            setMetodoMP("")
+            setMetodoPago(pago)
+            if(pago==="efectivo"){
+                handleMetodoPago(pago);
+            }
+        }else{
+            if(metodoPago==="mercadopago"){
+                setMetodoMP("")
+                setMetodoMP(pago)
+                handleMetodoPago(pago)
+            }
+        }
     }
 
     // CODIGO POSTAL
@@ -171,7 +189,7 @@ export default function Form2(){
         <div className="container-form-compra">
             <form onSubmit={handleSubmit(handleFormSubmit)}>
             
-                <div className='form-input-title'>
+                <div className='form-input-title formtitle2'>
                     <h2>DATOS PERSONALES</h2>
                 </div>
 
@@ -312,6 +330,38 @@ export default function Form2(){
                         </span>
                     </div>
                 }
+                {metodoPago==="mercadopago" && 
+                    <>
+                        <div className="radioButton" style={{display:"flex"}}>
+                            <label htmlFor="linkMP">
+                                <input
+                                    {...register("metodoMP",{required:true})}
+                                    type="radio"
+                                    name="metodoMP"
+                                    value="linkMP"
+                                    id="linkMP"
+                                    onClick={()=>handlePago("linkMP")}
+                                />
+                                LINK MERCADOPAGO
+                            </label>
+                            <label htmlFor="envioMP" className="envio-trans">
+                                <input
+                                    {...register("metodoMP",{required:true})}
+                                    type="radio"
+                                    name="metodoMP"
+                                    value="envioMP"
+                                    id="envioMP"
+                                    onClick={()=>handlePago("envioMP")}
+                                />
+                                ENVIO DINERO (MP) TRANSFERENCIA
+                            </label>
+                        </div>
+                        <span className="text-danger text-small d-block mb-2">
+                            {errors.metodoMP?.type==="required"&&"Campo obligatorio"}
+                        </span>
+                    </>
+                }
+
                 <div className="checkbox">
                     <label htmlFor="packaging">
                         <input
@@ -328,7 +378,7 @@ export default function Form2(){
                 <div className="total-a-pagar">
                     <p>Productos: $ {getTotalPriceCart()}</p>
                     <p>Precio de envio: $ {envio}</p>
-                    {metodoPago==="mercadopago"?
+                    {metodoMP==="linkMP"?
                         <>
                             {packaging?<p>Servicio Packaging: $ 200</p>:<></>}
                             <p>Impuestos por mercadopago: $ {(getTotalPriceForm())*5/100}</p>
@@ -340,7 +390,6 @@ export default function Form2(){
                             <p>Total: $ {(getTotalPriceForm())}</p>
                         </>
                     }
-                    
                 </div>
 
                 <button className="boton-validar" onClick={()=>{setRespuesta2(false)}}>VALIDAR FORMULARIO</button>
@@ -355,7 +404,7 @@ export default function Form2(){
             {/* MERCADO PAGO COMPRAR */}
             <div>
                 <MercadoPagoButton payerInfo={payerInfo} payerInfoEspecial={payerInfoEspecial} formValidado={formValidado}/>
-                <Link href="/Cart" className="linkStyle" passHref><button className="boton-validar">CANCELAR</button></Link>
+                <Link href="/Cart-" className="linkStyle" passHref><button className="boton-validar">CANCELAR</button></Link>
             </div>
         </div>
     )

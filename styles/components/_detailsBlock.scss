@@ -6,6 +6,7 @@
     position: fixed;
     top: 0vw;
     left: 0vw;
+    margin: 0px !important;
     p{
         margin-left: 0.5vw;
         margin-right: 0.5vw;
@@ -21,7 +22,7 @@
         width: fit-content;
         margin: 1.5vw auto;
         border-radius: 2vw;
-        margin-top: 5vw;
+        margin-top: 1vw;
     }
     .desc-card-tienda{
         display: flex !important;
