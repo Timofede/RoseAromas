@@ -16,31 +16,35 @@ export default function CardProducto({producto, setShowNotification, setShowNoti
     const [details,setDetails] = useState(false);
 
     return (
-    <Card sx={{ maxWidth: 345 }}>
-      <div className='img-card-tienda'>
-        {producto && <CardMedia
-          component="img"
-          alt="green iguana"
-          height="140"
-          image={producto.Img}
-        />}
-      </div>
-      <CardContent>
-        <div className="MuiCardContent-root css-46bh2p-MuiCardContent-root">
-          <div className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root">
-            {producto.Nombre}
-          </div>
-          <p className="MuiTypography-root MuiTypography-body1 desc-card-tienda css-1pnmrwp-MuiTypography-root">{producto.Descripcion}</p>
-          <span className="MuiTypography-root MuiTypography-p precio-card-tienda css-h7st5a">Precio: ${producto.Precio}</span>
-        </div>
-      </CardContent>
-      <CardActions>
-        <ItemTypeSelect setType={setType} type={type} prod={producto} className="select-card-tienda"/>
-        <ItemCount stock={producto && producto.Stock} amount={amount} setAmount={setAmount}/>
-        <AddCartButton producto={producto} type={type} amount={amount} setShowNotification={setShowNotification} setShowNotification2={setShowNotification2}/>
-        <DetailsButton SetDetails={setDetails} Details={details}/>
-        <DetailsBlock SetDetails={setDetails} Details={details} producto={producto} setShowNotification={setShowNotification} setShowNotification2={setShowNotification2}/>
-      </CardActions>
-    </Card>
+      <>
+        {producto && 
+          <Card sx={{ maxWidth: 345 }}>
+            <div className='img-card-tienda'>
+              {producto && <CardMedia
+                component="img"
+                alt="green iguana"
+                height="140"
+                image={producto.Img}
+              />}
+            </div>
+            <CardContent>
+              <div className="MuiCardContent-root css-46bh2p-MuiCardContent-root">
+                <div className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root">
+                  {producto.Nombre}
+                </div>
+                <p className="MuiTypography-root MuiTypography-body1 desc-card-tienda css-1pnmrwp-MuiTypography-root">{producto.Descripcion}</p>
+                <span className="MuiTypography-root MuiTypography-p precio-card-tienda css-h7st5a">Precio: ${producto.Precio}</span>
+              </div>
+            </CardContent>
+            <CardActions>
+              <ItemTypeSelect setType={setType} type={type} prod={producto} className="select-card-tienda"/>
+              <ItemCount stock={producto && producto.Stock} amount={amount} setAmount={setAmount}/>
+              <AddCartButton producto={producto} type={type} amount={amount} setShowNotification={setShowNotification} setShowNotification2={setShowNotification2}/>
+              <DetailsButton SetDetails={setDetails} Details={details}/>
+              <DetailsBlock SetDetails={setDetails} Details={details} producto={producto} setShowNotification={setShowNotification} setShowNotification2={setShowNotification2}/>
+            </CardActions>
+          </Card>
+        }
+      </>
   );
 }
