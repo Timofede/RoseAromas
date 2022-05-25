@@ -31,7 +31,7 @@
     .css-1qw96cp{
         width: 100%;
         min-height: 26vh;
-        padding: 0px;
+        padding: 0px !important;
     }
     .container-details-cart{
         z-index: 5;
@@ -66,6 +66,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: 4vw !important;
+    }
+    .css-h7st5a{
+        font-size: 3.5vw !important;
     }
     .img-card-tienda{
         &:hover img{
@@ -75,9 +79,6 @@
     }
 }
 @media(max-width:380px){
-    .MuiPaper-root {
-        width: 47%;
-    }
     .css-1ri6ub7-MuiPaper-root-MuiCard-root{
         margin: 1vw;
     }
